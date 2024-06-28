@@ -1,4 +1,5 @@
-import { Box, IconButton } from "@mui/material";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
 import React from "react";
 
 const HeaderComponent = () => {
@@ -10,13 +11,13 @@ const HeaderComponent = () => {
       alignItems="center"
     >
       <IconButton>
-        <img src="assets/full-screen.svg" alt="Full screen" />
+        <img src="/assets/full-screen.svg" alt="Full screen" />
       </IconButton>
       <IconButton>
-        <img src="assets/notifications.svg" alt="Notification" />
+        <img src="/assets/notifications.svg" alt="Notification" />
       </IconButton>
       <IconButton>
-        <img src="assets/Avatar.svg" alt="Profile" />
+        <img src="/assets/Avatar.svg" alt="Profile" />
       </IconButton>
     </Box>
   );

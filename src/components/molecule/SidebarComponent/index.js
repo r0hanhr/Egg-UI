@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import React, { useState } from "react";
 import { DietModules, EggModules } from "../../../constants/NavConstants";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -56,6 +57,12 @@ const Drawer = styled(MuiDrawer, {
 
 const SidebarComponent = () => {
   const [open, setOpen] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigate = path => {
+    navigate(path);
+  };
 
   return (
     <Drawer variant="permanent" open={open}>
@@ -80,7 +87,7 @@ const SidebarComponent = () => {
         alignItems="center"
         className="mt-4 mb-2"
       >
-        <img src="assets/Line.svg" alt="line" />
+        <img src="/assets/Line.svg" alt="line" />
         <Typography className="color-white fs-p8rem fw-400 ms-3">
           Egg Module
         </Typography>
@@ -99,7 +106,12 @@ const SidebarComponent = () => {
                   justifyContent: open ? "initial" : "center",
                   mx: 1,
                 }}
-                className={item.id === 1 ? "selected-tab" : ""}
+                className={
+                  location.pathname?.split("/").includes(item.path)
+                    ? "selected-tab"
+                    : ""
+                }
+                onClick={() => handleNavigate(item.path)}
               >
                 <ListItemIcon
                   sx={{
@@ -126,7 +138,7 @@ const SidebarComponent = () => {
         alignItems="center"
         className="mt-4 mb-2"
       >
-        <img src="assets/Line.svg" alt="line" />
+        <img src="/assets/Line.svg" alt="line" />
         <Typography className="color-white fs-p8rem fw-400 ms-3">
           DIET
         </Typography>
@@ -145,6 +157,12 @@ const SidebarComponent = () => {
                   justifyContent: open ? "initial" : "center",
                   mx: 1,
                 }}
+                className={
+                  location.pathname?.split("/").includes(item.path)
+                    ? "selected-tab"
+                    : ""
+                }
+                onClick={() => handleNavigate(item.path)}
               >
                 <ListItemIcon
                   sx={{

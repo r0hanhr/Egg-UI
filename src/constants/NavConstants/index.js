@@ -2,32 +2,32 @@ export const EggModules = [
   {
     id: 1,
     label: "Dashboard",
-    path: "/dashboard",
+    path: "dashboard",
   },
   {
     id: 2,
     label: "Nursery",
-    path: "/nursery",
+    path: "nursery",
   },
   {
     id: 3,
     label: "Incubator Rooms",
-    path: "/incubatorrooms",
+    path: "incubatorrooms",
   },
   {
     id: 4,
     label: "Incubators",
-    path: "/incubators",
+    path: "incubators",
   },
   {
     id: 5,
     label: "Brooders",
-    path: "/brooders",
+    path: "brooders",
   },
   {
     id: 6,
     label: "Eggs",
-    path: "/eggs",
+    path: "eggs",
   },
 ];
 
@@ -35,21 +35,21 @@ export const DietModules = [
   {
     id: 1,
     label: "Ingredient",
-    path: "/ingredient",
+    path: "ingredient",
   },
   {
     id: 2,
     label: "Recipe",
-    path: "/recipe",
+    path: "recipe",
   },
   {
     id: 3,
     label: "Diet",
-    path: "/diet",
+    path: "diet",
   },
   {
     id: 4,
     label: "Feed Type",
-    path: "/feedtype",
+    path: "feedtype",
   },
 ];

@@ -17,3 +17,16 @@
 .link-active {
     color: #44544ADE !important;
 }
+
+.table-head-bg {
+    background: #C1D3D0 !important
+}
+
+.table-cell-border {
+    border-bottom: 1px solid #C3CEC7 !important
+}
+
+.table-cell-border:hover {
+    border-bottom: 2px solid #C1D3D0 !important;
+    box-shadow: 1px 1px 5px #C1D3D0 !important;
+}
