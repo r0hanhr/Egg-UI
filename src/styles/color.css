@@ -1,0 +1,19 @@
+.nav-background-color {
+    background: #1F515B
+}
+
+.layout-background-color {
+    background: #EFF5F2
+}
+
+.color-white {
+    color: #FFFFFF;
+}
+
+.link-fade {
+    color: #44544A61 !important;
+}
+
+.link-active {
+    color: #44544ADE !important;
+}

@@ -1,0 +1,35 @@
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-900 {
+    font-weight: 900 !important;
+}
+
+.fs-p8rem {
+    font-size: 0.8rem !important;
+}
+
+.fs-p9rem {
+    font-size: 0.9rem !important;
+}
+
+.fs-1rem {
+    font-size: 1rem !important;
+}
+
+.fs-1p3rem {
+    font-size: 1.3rem !important;
+}
