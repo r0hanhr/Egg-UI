@@ -15,8 +15,8 @@ const column = [
     id: 1,
     label: "NO",
     col: "col1",
-    position: "sticky",
-    minWidth: 100,
+    // position: "sticky",
+    // minWidth: 100,
   },
   {
     id: 2,
@@ -48,46 +48,46 @@ const column = [
     label: "COLLECTED BY",
     col: "col7",
   },
-  {
-    id: 7,
-    label: "COLLECTED BY",
-    col: "col8",
-  },
-  {
-    id: 8,
-    label: "COLLECTED BY",
-    col: "col9",
-  },
-  {
-    id: 7,
-    label: "COLLECTED BY",
-    col: "col10",
-  },
-  {
-    id: 8,
-    label: "COLLECTED BY",
-    col: "col11",
-  },
-  {
-    id: 7,
-    label: "COLLECTED BY",
-    col: "col12",
-  },
-  {
-    id: 8,
-    label: "COLLECTED BY",
-    col: "col13",
-  },
-  {
-    id: 7,
-    label: "COLLECTED BY",
-    col: "col14",
-  },
-  {
-    id: 8,
-    label: "COLLECTED BY",
-    col: "col15",
-  },
+  // {
+  //   id: 7,
+  //   label: "COLLECTED BY",
+  //   col: "col8",
+  // },
+  // {
+  //   id: 8,
+  //   label: "COLLECTED BY",
+  //   col: "col9",
+  // },
+  // {
+  //   id: 7,
+  //   label: "COLLECTED BY",
+  //   col: "col10",
+  // },
+  // {
+  //   id: 8,
+  //   label: "COLLECTED BY",
+  //   col: "col11",
+  // },
+  // {
+  //   id: 7,
+  //   label: "COLLECTED BY",
+  //   col: "col12",
+  // },
+  // {
+  //   id: 8,
+  //   label: "COLLECTED BY",
+  //   col: "col13",
+  // },
+  // {
+  //   id: 7,
+  //   label: "COLLECTED BY",
+  //   col: "col14",
+  // },
+  // {
+  //   id: 8,
+  //   label: "COLLECTED BY",
+  //   col: "col15",
+  // },
 ];
 
 const row = [
@@ -99,8 +99,8 @@ const row = [
     col5: "10 Apr 2024",
     col6: "2024/0001234/3A",
     col7: "Jordan Stevenson",
-    col8: "Jordan Stevenson",
-    col9: "Jordan Stevenson",
+    // col8: "Jordan Stevenson",
+    // col9: "Jordan Stevenson",
   },
 ];
 

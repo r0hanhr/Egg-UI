@@ -3,6 +3,7 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { BreadCrumbsConstants } from "../../../constants/NavConstants";
 
 const BreadcrumbComponent = () => {
   const [pathNames, setPathNames] = useState([]);
@@ -10,6 +11,42 @@ const BreadcrumbComponent = () => {
 
   useEffect(() => {
     setPathNames(location.pathname?.split("/"));
+
+    const list = [...BreadCrumbsConstants];
+
+    const findRoute = (routeArray, targetRoute) => {
+      let result = [];
+
+      const search = (node, basePath = "") => {
+        let fullPath = basePath ? `${basePath}/${node.path}` : node.path;
+
+        if (fullPath === targetRoute) {
+          result.push(node);
+          return true;
+        }
+
+        if (node.child) {
+          node.child.map(item => {
+            if (search(item, fullPath)) {
+              result.push(node);
+              return true;
+            }
+          });
+        }
+
+        return false;
+      };
+
+      for (let route of routeArray) {
+        if (search(route)) {
+          break;
+        }
+      }
+
+      return result.reverse();
+    };
+
+    console.log(findRoute(list, location.pathname));
   }, [location]);
 
   return (

@@ -53,3 +53,62 @@ export const DietModules = [
     path: "feedtype",
   },
 ];
+
+export const BreadCrumbsConstants = [
+  {
+    label: "Egg Module",
+    child: [
+      {
+        label: "Dashboard",
+        path: "dashboard",
+      },
+      {
+        label: "Nursery",
+        path: "nursery",
+      },
+      {
+        label: "Incubator Rooms",
+        path: "incubatorrooms",
+      },
+      {
+        label: "Incubators",
+        path: "incubators",
+      },
+      {
+        label: "Brooders",
+        path: "brooders",
+      },
+      {
+        label: "Eggs",
+        path: "eggs",
+        child: [
+          {
+            label: "Details",
+            path: "edddetails",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Diet",
+    child: [
+      {
+        label: "Ingredient",
+        path: "ingredient",
+      },
+      {
+        label: "Recipe",
+        path: "recipe",
+      },
+      {
+        label: "Diet",
+        path: "diet",
+      },
+      {
+        label: "Feed Type",
+        path: "feedtype",
+      },
+    ],
+  },
+];

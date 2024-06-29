@@ -10,6 +10,10 @@
     color: #FFFFFF;
 }
 
+.bg-white {
+    background-color: #ffffff
+}
+
 .link-fade {
     color: #44544A61 !important;
 }
@@ -29,4 +33,19 @@
 .table-cell-border:hover {
     border-bottom: 2px solid #C1D3D0 !important;
     box-shadow: 1px 1px 5px #C1D3D0 !important;
+}
+
+.contained-button {
+    background-color: #37BD69 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 10px 0 #4C4E6438 !important;
+    border-radius: 8px !important;
+    padding: 10px 5px !important;
+}
+
+.outlined-button {
+    border: 1px solid #37BD69 !important;
+    color: #37BD69 !important;
+    border-radius: 8px !important;
+    padding: 10px 5px !important;
 }
