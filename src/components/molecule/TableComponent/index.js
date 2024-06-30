@@ -1,5 +1,6 @@
 import {
   Box,
+  Pagination,
   Table,
   TableBody,
   TableCell,
@@ -7,102 +8,8 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
-
-const column = [
-  {
-    id: 1,
-    label: "NO",
-    col: "col1",
-    // position: "sticky",
-    // minWidth: 100,
-  },
-  {
-    id: 2,
-    label: "SPECIES",
-    col: "col2",
-  },
-  {
-    id: 3,
-    label: "EGG NUMBER",
-    col: "col3",
-  },
-  {
-    id: 4,
-    label: "SITE NAME",
-    col: "col4",
-  },
-  {
-    id: 4,
-    label: "COLLECTED ON",
-    col: "col5",
-  },
-  {
-    id: 5,
-    label: "BATCH ON",
-    col: "col6",
-  },
-  {
-    id: 6,
-    label: "COLLECTED BY",
-    col: "col7",
-  },
-  // {
-  //   id: 7,
-  //   label: "COLLECTED BY",
-  //   col: "col8",
-  // },
-  // {
-  //   id: 8,
-  //   label: "COLLECTED BY",
-  //   col: "col9",
-  // },
-  // {
-  //   id: 7,
-  //   label: "COLLECTED BY",
-  //   col: "col10",
-  // },
-  // {
-  //   id: 8,
-  //   label: "COLLECTED BY",
-  //   col: "col11",
-  // },
-  // {
-  //   id: 7,
-  //   label: "COLLECTED BY",
-  //   col: "col12",
-  // },
-  // {
-  //   id: 8,
-  //   label: "COLLECTED BY",
-  //   col: "col13",
-  // },
-  // {
-  //   id: 7,
-  //   label: "COLLECTED BY",
-  //   col: "col14",
-  // },
-  // {
-  //   id: 8,
-  //   label: "COLLECTED BY",
-  //   col: "col15",
-  // },
-];
-
-const row = [
-  {
-    col1: "1",
-    col2: "Rainbow",
-    col3: "0273/24",
-    col4: "site name XYZ",
-    col5: "10 Apr 2024",
-    col6: "2024/0001234/3A",
-    col7: "Jordan Stevenson",
-    // col8: "Jordan Stevenson",
-    // col9: "Jordan Stevenson",
-  },
-];
 
 const useStyles = makeStyles({
   stickyCol: {
@@ -123,7 +30,7 @@ const useStyles = makeStyles({
   },
 });
 
-const TableHeadSection = ({ classes = {} }) => {
+const TableHeadSection = ({ classes = {}, column = [] }) => {
   let minWidthCount = 0;
   const getStickyClass = (position, index) => {
     if (!position || position === "") return "";
@@ -164,9 +71,22 @@ const TableHeadSection = ({ classes = {} }) => {
   );
 };
 
-const TableComponent = () => {
+const TableComponent = ({ rows = [], columns = [], onRowClick = () => {} }) => {
+  const [row, setRow] = useState([]);
+  const [column, setColumn] = useState([]);
+  const [page, setPage] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const rowsPerPage = 10;
+
   const classes = useStyles();
   let minWidthCount = 0;
+
+  useEffect(() => {
+    const count = Math.ceil(rows.length / rowsPerPage);
+    setPageCount(count);
+    setRow(rows);
+    setColumn(columns);
+  }, [rows, columns]);
 
   const getStickyClass = (position, index) => {
     if (!position || position === "") return "";
@@ -180,36 +100,62 @@ const TableComponent = () => {
     <Box className="w-100">
       <TableContainer sx={{ position: "relative" }}>
         <Table>
-          <TableHeadSection classes={classes} />
+          <TableHeadSection classes={classes} column={column} />
           <TableBody>
-            {row.map((item, index) => (
-              <TableRow className="table-cell-border" key={index}>
-                {column.map((ele, ind) => {
-                  minWidthCount += ele.minWidth;
-                  return (
-                    <TableCell
-                      key={ind}
-                      className={getStickyClass(ele.position, ind)}
-                      sx={{
-                        left:
-                          ele.position === "sticky" && ind !== column.length - 1
-                            ? `${minWidthCount - ele.minWidth}px`
-                            : "",
-                        right:
-                          ele.position === "sticky" && ind === column.length - 1
-                            ? 0
-                            : "",
-                      }}
-                    >
-                      {item[ele.col]}
-                    </TableCell>
-                  );
-                })}
-              </TableRow>
-            ))}
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((item, index) => (
+                <TableRow
+                  onClick={onRowClick}
+                  className="table-cell-border"
+                  key={index}
+                >
+                  {column.map((ele, ind) => {
+                    minWidthCount += ele.minWidth;
+                    return (
+                      <TableCell
+                        key={ind}
+                        className={`${getStickyClass(
+                          ele.position,
+                          ind
+                        )} fw-400`}
+                        sx={{
+                          left:
+                            ele.position === "sticky" &&
+                            ind !== column.length - 1
+                              ? `${minWidthCount - ele.minWidth}px`
+                              : "",
+                          right:
+                            ele.position === "sticky" &&
+                            ind === column.length - 1
+                              ? 0
+                              : "",
+                        }}
+                      >
+                        {item[ele.col]}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>
+      {row.length > 0 ? (
+        <Box className="d-flex justify-content-end my-3">
+          <Pagination
+            count={pageCount}
+            shape="rounded"
+            onChange={(e, newPage) => setPage(newPage - 1)}
+            sx={{
+              "& .Mui-selected": {
+                backgroundColor: "#839D8D !important",
+                color: "#ffffff",
+              },
+            }}
+          />
+        </Box>
+      ) : null}
     </Box>
   );
 };

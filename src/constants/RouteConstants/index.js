@@ -3,6 +3,7 @@ import Brooders from "../../pages/Brooders";
 import Dashboard from "../../pages/Dashboard";
 import Diet from "../../pages/Diet";
 import Eggs from "../../pages/Eggs";
+import EggDetails from "../../pages/Eggs/EggDetails";
 import FeedType from "../../pages/FeedType";
 import IncubatorRooms from "../../pages/IncubatorRooms";
 import Incubators from "../../pages/Incubators";
@@ -34,6 +35,10 @@ export const RouteConstants = [
   {
     path: "/eggs",
     element: <Eggs />,
+  },
+  {
+    path: "/eggs/eggdetails",
+    element: <EggDetails />,
   },
   {
     path: "/ingredient",

@@ -5,15 +5,16 @@ const ButtonComponent = ({
   label = "",
   variant = "contained",
   onClick = () => {},
+  className = "",
 }) => {
   return (
     <Button
       variant={variant}
       onClick={onClick}
       fullWidth
-      className={
+      className={`${
         variant === "contained" ? "contained-button" : "outlined-button"
-      }
+      } ${className}`}
     >
       {label}
     </Button>

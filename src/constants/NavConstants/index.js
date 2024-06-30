@@ -56,59 +56,58 @@ export const DietModules = [
 
 export const BreadCrumbsConstants = [
   {
-    label: "Egg Module",
-    child: [
-      {
-        label: "Dashboard",
-        path: "dashboard",
-      },
-      {
-        label: "Nursery",
-        path: "nursery",
-      },
-      {
-        label: "Incubator Rooms",
-        path: "incubatorrooms",
-      },
-      {
-        label: "Incubators",
-        path: "incubators",
-      },
-      {
-        label: "Brooders",
-        path: "brooders",
-      },
-      {
-        label: "Eggs",
-        path: "eggs",
-        child: [
-          {
-            label: "Details",
-            path: "edddetails",
-          },
-        ],
-      },
-    ],
+    label: "Dashboard",
+    path: "dashboard",
+    parent: "Egg Module",
+  },
+  {
+    label: "Nursery",
+    path: "nursery",
+    parent: "Egg Module",
+  },
+  {
+    label: "Incubator Rooms",
+    path: "incubatorrooms",
+    parent: "Egg Module",
+  },
+  {
+    label: "Incubators",
+    path: "incubators",
+    parent: "Egg Module",
+  },
+  {
+    label: "Brooders",
+    path: "brooders",
+    parent: "Egg Module",
+  },
+  {
+    label: "Egg List",
+    path: "eggs",
+    parent: "Egg Module",
+  },
+  {
+    label: "Egg Details",
+    path: "eggdetails",
+    parent: "Egg List",
+  },
+  {
+    label: "Ingredient",
+    path: "ingredient",
+    parent: "Diet",
+  },
+  {
+    label: "Recipe",
+    path: "recipe",
+    parent: "Diet",
   },
   {
     label: "Diet",
-    child: [
-      {
-        label: "Ingredient",
-        path: "ingredient",
-      },
-      {
-        label: "Recipe",
-        path: "recipe",
-      },
-      {
-        label: "Diet",
-        path: "diet",
-      },
-      {
-        label: "Feed Type",
-        path: "feedtype",
-      },
-    ],
+    path: "diet",
+    parent: "Diet",
+  },
+  {
+    label: "Feed Type",
+    path: "feedtype",
+    parent: "Diet",
   },
 ];

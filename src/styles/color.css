@@ -49,3 +49,23 @@
     border-radius: 8px !important;
     padding: 10px 5px !important;
 }
+
+.color-orange {
+    color: #FA6140 !important
+}
+
+.color-light-blue {
+    color: #00AFD6 !important
+}
+
+.color-green {
+    color: #006D35 !important
+}
+
+.color-dark-green {
+    color: #1F515B !important
+}
+
+.color-light-green {
+    color: #37BD69 !important
+}
